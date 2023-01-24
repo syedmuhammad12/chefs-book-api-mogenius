@@ -30,6 +30,11 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
 @app.route('/user_signup', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def signup_user():
