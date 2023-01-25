@@ -91,11 +91,13 @@ def signin_user():
 @app.route('/chef_signup', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def signup_chef():
+    print("avdsvsdbdsb")
     email = request.get_json()["email"]
     password = request.get_json()["password"]
     name = request.get_json()["name"]
     username = request.get_json()["username"]
     try:
+        print("hehehehe")
         with conn.cursor() as cur: 
             cur.execute("""
                     CREATE TABLE IF NOT EXISTS Chefs (
@@ -104,8 +106,10 @@ def signup_chef():
                         email text,
                         password text)
                     """)
+            print("hajdbahf")
             a = cur.execute(f"SELECT * FROM Chefs WHERE email='{email}'")
             b = cur.execute(f"SELECT * FROM Chefs WHERE username='{username}'")
+            print("alaaaaaa")
             if len(a.fetchall())>0:
                 return jsonify("Email already present")
             elif len(b.fetchall())>0:
