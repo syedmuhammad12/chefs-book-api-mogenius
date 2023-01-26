@@ -179,10 +179,10 @@ def add_recipe():
                             """)
             
             upload(image_file, public_id=image_name)
-        return jsonify("done sending file :)")
+        return jsonify("Recipe Added Successfully :)")
                             
     except:
-        return jsonify("Server Down!!!!")
+        return jsonify("Ouch, server is not communicating :(")
     
 
 @app.route('/chefrecipe', methods=['POST'])
@@ -232,7 +232,7 @@ def get_rec():
                 return jsonify({"data": all_data})
                             
     except:
-        return jsonify("No Recipes Available :(")
+        return jsonify({"data": []})
     
     
 @app.route('/viewrecipe', methods=['POST'])
@@ -254,7 +254,7 @@ def view_rec():
             return jsonify(dic)
                             
     except:
-        return jsonify("Server Down!!!!")
+        return jsonify("Ouch, server is not communicating :(")
     
     
 @app.route('/updaterecipe', methods=['POST'])
@@ -279,10 +279,10 @@ def update_rec():
                             )
 
     #             upload(image_file, public_id=image_name)
-        return jsonify("done sending file :)")
+        return jsonify("Recipe Updated Seccessfully :)")
                             
     except:
-        return jsonify("Server Down!!!!")
+        return jsonify("Ouch, server is not communicating :(")
 
 
 @app.route('/deleterecipe', methods=['POST'])
@@ -301,10 +301,10 @@ def delete_rec():
         destroy(rec_img)
 
     #             upload(image_file, public_id=image_name)
-        return jsonify("done :)")
+        return jsonify("Recipe has been deleted successfully :)")
                             
     except:
-        return jsonify("Server Down!!!!")
+        return jsonify("Ouch, server is not communicating :(")
     
 
 
