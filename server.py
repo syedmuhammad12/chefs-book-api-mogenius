@@ -203,7 +203,7 @@ def get_rec_chef():
                 all_data = []
                 for i in data:
                     url, options = cloudinary_url(i[-1], width=800, height=500, crop="fill")
-                    dic = {"recid": i[0], "username": i[1], "recname": i[2], "recing": i[3], "recmethod": i[4], "recimg": url}
+                    dic = {"recid": i[0], "username": i[1], "recname": i[2], "recing": i[3], "recmethod": i[4], "recimg": url, "rec_img": i[5]}
                     all_data.append(dic)
                 return jsonify({"data": all_data})
                             
